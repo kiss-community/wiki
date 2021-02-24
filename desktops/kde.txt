@@ -299,7 +299,7 @@ powerdevil. See [4.0] for more information.
     unknown problems.
 
     Because of the time required to build qt5* packages, some prebuilt tarballs
-    are available on the Github repository [5]. They are built in a standard 
+    are available on the Github repository [7]. They are built in a standard 
     KISS tarball, with C(XX)FLAGS=-march=x86-64 -mtune=generic -Os -pipe.
 
     NOTE: In general, it is a security risk to install prebuilt packages. these
@@ -648,7 +648,7 @@ ________________________________________________________________________________
 
 Here is a collection of some common issues you might encounter in buiding or
 running KDE. If you encounter any other problems, please submit an issue at
-$dilyn-corner/KISS-kde.
+$/dilyn-corner/KISS-kde.
 
 
     [5.1] My fonts don't work!
@@ -699,14 +699,14 @@ $dilyn-corner/KISS-kde.
     build independently. Some dependency requirements are simple fixes. Some
     examples include:
 
-    +---------------+------------------------------------------------------------+
-    | required pkg  | Error                                                      |
-    |---------------+------------------------------------------------------------|
-    |               |                                                            |
-    | pkgconf       | ...pkg foo not found...                                    |
-    | linux-headers | linux/bar.h not found                                      |
-    |               |                                                            |
-    +---------------+------------------------------------------------------------+
+    +---------------+----------------------------------------------------------+
+    | required pkg  | Error                                                    |
+    |---------------+----------------------------------------------------------|
+    |               |                                                          |
+    | pkgconf       | ...pkg foo not found...                                  |
+    | linux-headers | linux/bar.h not found                                    |
+    |               |                                                          |
+    +---------------+----------------------------------------------------------+
 
 
 [6.0] How You Can Help
@@ -729,7 +729,7 @@ ________________________________________________________________________________
 [3] https://gitlab.com/kwinft/kwinft
 [4] https://kiss.armaanb.net/package-manager#3.2
 [5] https://kiss.armaanb.net/package-manager#5.3
-[6] http://linuxfromscratch.org/blfs/view/svn/general/elogind.html 
+[6] http://linuxfromscratch.org/blfs/view/svn/general/elogind.html
 [7] https://github.com/dilyn-corner/KISS-kde/releases
 [8] https://kiss.armaanb.net/install
 [9] https://wiki.archlinux.org/index.php/SDDM
