@@ -83,11 +83,12 @@
 |                                                                              |
 | SOFTWARE                                                                     |
 |                                                                              |
-|  @/software/git                           @/software/openssh                 |
-|  @/software/wpa_supplicant                @/software/dhcpcd                  |
-|  @/software/eiwd                          @/software/tzdata                  |
-|  @/software/vim                           @/software/man-pages               |
-|  @/software/acpid                                                            |
+|  @/software/acpid                         @/software/opendoas                |
+|  @/software/alsa-utils                    @/software/openssh                 |
+|  @/software/dhcpcd                        @/software/tzdata                  |
+|  @/software/eiwd                          @/software/vim                     |
+|  @/software/git                           @/software/wpa-supplicant          |
+|  @/software/man-pages                                                        |
 |                                                                              |
 +------------------------------------------------------------------------------+
 
