@@ -1,0 +1,141 @@
+Kernel Configuration
+________________________________________________________________________________
+
+Configuring the kernel is an incredibly daunting task. There are over 10,000
+possible options in a modern kernel that you can choose to enable, disable, or
+make available as modules. At first, this might seem overwhelming. However, the
+plethora of options available to users allows for incredible flexibility in
+system usability and efficiency.
+
+The kernel allows you to control many aspects of how your machine works.
+Everything from what CPU will support your kernel, whether or not to enable
+hibernation, if modules can be unloaded, SELinux support, and cypher algorithms,
+along with many of debugging options, are all available for tweaking.  Do you
+only want XFS support, but want your kernel to run on Xen CPUs but only from
+particular kinds of SCSI drives? You could do that. Do you want to make sure
+your kernel is as secure as it can be, by disabling hyperthreading, adding
+retpoline, using things like App Armor and forcing module signature
+verification? Also an option! Everything that the Linux kernel *is* is at your
+fingertips. 
+
+Please be aware that going through every single kernel option is a difficult,
+arduous, or at the very least a time consuming endeavor. If your goal in reading
+this page is to eak out every last tenth of a percentage of performace from your
+kernel, your time may be better spent elsewhere; very little is to be gained
+from fine-tuning these options. If performance is what you're after, you are
+better off looking at patchsets for the kernel. The primary goals of this page
+are to provide documentation on kernel features and to encourage users to
+explore kernel configuration from a position of confidence.
+
+For a solid background on where to start, see @/kernel/config
+
+
+Index
+________________________________________________________________________________
+
+General Setup                                                              [1.0]
+Processor Type and Features                                                [2.0]
+Power Management and ACPI Options                                          [3.0]
+Bus Options                                                                [4.0]
+Binary Emulation                                                           [5.0]
+Firwmare Drivers                                                           [6.0]
+Virtualization                                                             [7.0]
+General Architecture-Dependent Options                                     [8.0]
+Module Support                                                             [9.0]
+Block Layer                                                               [10.0]
+IO Schedulers                                                             [11.0]
+Executable File Formats                                                   [12.0]
+Memory Management                                                         [13.0]
+Networking Support                                                        [14.0]
+Device Drivers                                                            [15.0]
+File Systems                                                              [16.0]
+Security Options                                                          [17.0]
+Cryptographic API                                                         [18.0]
+Library Routines                                                          [19.0]
+Kernel Hacking                                                            [20.0]
+References                                                                [21.0]
+
+
+[1.0] General Setup
+________________________________________________________________________________
+
+
+[2.0] Processor Type and Features
+________________________________________________________________________________
+
+
+[3.0] Power Management and ACPI Options
+________________________________________________________________________________
+
+
+[4.0] Bus Options
+________________________________________________________________________________
+
+
+[5.0] Binary Emulation
+________________________________________________________________________________
+
+
+[6.0] Firmware Drivers
+________________________________________________________________________________
+
+
+[7.0] Virtualization
+________________________________________________________________________________
+
+
+[8.0] General Architecture-Dependent Options
+________________________________________________________________________________
+
+
+[9.0] Module Support
+________________________________________________________________________________
+
+
+[10.0] Block Layer 
+________________________________________________________________________________
+
+
+[11.0] IO Schedulers
+________________________________________________________________________________
+
+
+[12.0] Executable File Formats
+________________________________________________________________________________
+
+
+[13.0] Memory Management
+________________________________________________________________________________
+
+
+[14.0] Networking Support
+________________________________________________________________________________
+
+
+[15.0] Device Drivers
+________________________________________________________________________________
+
+
+[16.0] File Systems
+________________________________________________________________________________
+
+
+[17.0] Security Options
+________________________________________________________________________________
+
+
+[18.0] Cryptographic API
+________________________________________________________________________________
+
+
+[19.0] Library Routines
+________________________________________________________________________________
+
+
+[20.0] Kernel Hacking
+________________________________________________________________________________
+
+
+[21.0] References
+________________________________________________________________________________
+
