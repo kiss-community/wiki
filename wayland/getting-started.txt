@@ -1,0 +1,292 @@
+Wayland
+________________________________________________________________________________
+
+Wayland [0] is a display protocol that aims to be a simpler and more modern
+replacement for the X Window System. The Wayland protocol follows a
+client–server model in which clients are the graphical applications requesting
+the display of pixel buffers on the screen, and the server (compositor) is the
+service provider controlling the display of these buffers.
+
+Unlike how Xorg is the center of the universe (which everyone must talk to),
+Wayland puts the Linux kernel and its components (DRI, DRM, etc) in the middle.
+This effectively leaves the Wayland compositor off in the corner as little more
+than a special application [1].
+
+Wayland has been in development since September of 2008 and is usable today for
+a large number of use-cases. Some hardware configurations (namely NVIDIA GPUs)
+[2] [3] are poorly supported. However, Wayland is seeing increased adoption in
+much larger projects, including GNOME [4] and KDE [5]. There is also work to
+make Firefox run on Wayland-only systems [6], and Chromium can already be fully
+built without Xorg libraries using Ozone [7]. If all you need is a web browser,
+a terminal, and dmenu, Wayland can work quite well for you.
+
+
+Index
+________________________________________________________________________________
+
+- Getting Started                                                          [0.0]
+    - Caveats                                                              [0.1]
+    - Benefits                                                             [0.2]
+    - Prerequisites                                                        [0.3]
+
+- Using Xwayland                                                           [1.0]
+
+- Xorgless                                                                 [2.0]
+    - Alternatives                                                         [2.1]
+
+- Post Installation                                                        [3.0]
+- References                                                               [4.0]
+
+
+[0.0] Getting Started
+________________________________________________________________________________
+
+Because Wayland is not officially supported, all Wayland packages must be
+managed by the users themselves. However, most of the software required for
+Wayland and most compositors can be found in the main repositories, and Wayland
+support can be added by simply modifying the build scripts. 
+
+Several user repositories already exist which provide Wayland packages. 
+
+* For a repository which supports Xwayland with sway and firefox, check out
+  $/Himmalerin/kiss-wayland
+
+* For a repository that opts for a strictly xorgless approach and uses hikari
+  and chromium, look at $/dilyn-corner/KISS-me
+
+
+    [0.1] Caveats
+    ____________________________________________________________________________
+    
+    While the Wayland protocol is more or less done, the compositors available
+    can differ in protocol implementation. Xorg is still in wide use and 
+    alternatives to usual software must be sought. Luckily, many Xorg analogues
+    already exist for Wayland - see [2.1].
+    
+    The major downside to Wayland is the reduction in choice. While the Wayland
+    protocol does not define what a compositor shall depend on, they can
+    potentially require udev, PAM, and elogind. Additionally, Xorg has nearly an
+    unlimited number of window managers and desktop environments to select from.
+    With Wayland, there are far fewer compositors to choose.
+    
+    wlroots provides a standard that many Wayland compositors choose to 
+    implement, and most software can be expected to work across most wlroots
+    compositors. For those which don't utilize wlroots, however, finding
+    software which works can be trickier.
+    
+    In short, the general limitations users can expect are as follows:
+    
+    - Limited NVIDIA support [8]
+    - Nonstandard and compositor specific software [9]
+    - No Wayland support in SDL 1 (must use XWayland) [10]
+    - Starting compositors without logind requires SUID permissions [11]
+    
+    
+    [0.2] Benefits
+    ____________________________________________________________________________
+    
+    Wayland has a useful number of benefits and improvements over Xorg. The 
+    above caveats do not apply to everyone (or every system). Those unaffected
+    or willing to live with the caveats will have no problem swapping over.
+    
+    - Fewer moving parts - libraries are provided by 2-3 packages instead of 20+
+    - Fewer packages to maintain
+    - Better multimonitor and HiDPI support [12]
+    - No screen tearing [14]
+    - Hardware accelerated video playback in Firefox and Webkit2GTK [15]
+    
+    
+    [0.3] Prerequisites
+    ____________________________________________________________________________
+    
+    If Xorg is required for specific applications like firefox or games, many
+    Xlibs are still required and xorg-server must be built with xwayland
+    support. If Xorg is not needed, then libxkbcommon and xkeyboard-config are
+    the only xorg packages required for wayland and wayland-protocols.
+    
+    Many packages can identify if Wayland support is to be built without user
+    intervention. Some packages which will require extra work include:
+    
+    +--------------+-----------------------------------------------------------+
+    | To enable xwayland support                                               |
+    +--------------+-----------------------------------------------------------+
+    | mesa         | -Dplatforms=x11                                           |
+    | wlroots      | -Dxwayland=enabled                                        |
+    | xorg-server  | -enable-xwayland                                          |
+    +--------------+-----------------------------------------------------------+
+    | To enable wayland support                                                |
+    +--------------+-----------------------------------------------------------+
+    | chromium     | ozone_platform_wayland=true                               |
+    | firefox      | --enable-default-toolkit=cairo-gtk3-wayland               |
+    | gtk+3        | --enable-wayland-backend                                  |
+    | libxkbcommon | -Denable-wayland=true                                     |
+    | mesa         | -Dplatforms=wayland                                       |
+    +--------------+-----------------------------------------------------------+
+    
+    
+[1.0] Using Xwayland
+________________________________________________________________________________
+
+In general, these steps can be followed on a system already running with Xorg.
+Only a few package rebuilds are required to enable Wayland support.
+
+Mesa must be rebuilt first, adding wayland to the list of platforms. 
+
+After that, rebuild libxkbcommon and xorg-server with xwayland support enabled. 
+
+Finally, rebuild all programs which required mesa and xorg-server. Use
+kiss-revdepends for a convenient list.
+
+Applications which use Qt and GTK will require you to specify the proper backend
+to use. GTK will default to running applications with Wayland. Qt applications
+will require you to specify xkb or Wayland for the backend, and supports a
+precedent-based list. Additionally, Qt applications will require qt5-wayland.
+
+See [16] for information on other backends and applications.
+
+Add the following to your env (eg $HOME/.profile)
+
++----------------+-------------------------------------------------------------+
+| GTK            | GDK_BACKEND=x11                                             |
+| Qt             | QT_QPA_PLATFORM=xcb,wayland                                 |
++----------------+-------------------------------------------------------------+
+
+
+[2.0] Xorgless
+________________________________________________________________________________
+
+Ensure no Xorg packages are installed, and remove any Xorg repositories from
+$KISS_PATH, keeping only xkeyboard-config and libxkbcommon. You will have to
+modify the depends files of many packages (including mesa, freetype-harfbuzz,
+pango, cairo, etc.) to not include any Xorg dependencies, but few modifications
+are required beyond that.
+
+First, build wayland and wayland-protocols.
+
+Then, build xkeyboard-config, followed by libxkbcommon with wayland support and
+without x11 support.
+
+Finally, build mesa with the wayland platform and without the x11 platform.
+
+Some packages might assume that, because you are building Linux, you must be
+using GLX. GLX is a graphics implementation provided by mesa, but is only built
+on Xorg systems. Wayland uses EGL and GLES. For some packages, like cairo, you
+might have to specify the gl-backend to be used. 
+
+Launching applications in Wayland requires a little more intervention. GTK will
+default to Wayland usually, but adding the following to your environment is a
+good idea
+
++----------------+-------------------------------------------------------------+
+| GTK            | GDK_BACKEND=wayland                                         |
+| Qt             | QT_QPA_PLATFORM=wayland                                     |
+| firefox        | MOZ_ENABLE_WAYLAND=wayland                                  |
++----------------+-------------------------------------------------------------+
+
+
+    [2.1] Alternatives 
+    ____________________________________________________________________________
+
+    See [9] for a larger list!
+
+    +---------------+----------------------------------------------------------+
+    | browser       | falkon, viper-browser, chromium                          |
+    | wl-clipboard  | A command-line clipboard tool for Wayland [17]           |
+    | wev           | An input event tool like xev, for Wayland [18]           |
+    | wdisplays     | A GUI display configurator for wlroots compositors [19]  |
+    | wbg           | A simple background setter for wlroots compositors [20]  |
+    | mako          | A lightweight notification daemon for Wayland [21]       |
+    | grim          | A screenshot tool for Wayland [22]                       |
+    | foot          | A performant and minimalist terminal emulator [23]       |
+    | alacritty     | A cross-platform terminal emulator written in rust[24]   |
+    | kitty         | A feature-full, GPU-accelerated terminal emulator [25]   |
+    | yambar        | A modular status panel inspired by polybar [26]          |
+    | waybar        | A customizable status bar for wlroots compositors [27]   |
+    | wob           | A lightweight progress overlay bar for Wayland [28]      |
+    | swaylock      | A screen locker for Wayland [29]                         |
+    | bemenu        | A menu library inspired by dmenu [30]                    |
+    | wofi          | A menu launcher for wlroots based compositors [31]       |
+    +---------------+----------------------------------------------------------+
+
+
+[3.0] Post installation
+________________________________________________________________________________
+
+In environments without seatd/systemd/elogind/consolekit the XDG_RUNTIME_DIR
+variable must be set manually. This should be set before trying to launch a
+wayland session. Add something like this to your user's $HOME/.profile:
+
++------------------------------------------------------------------------------+
+|                                                                              |
+|   export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/tmp/$(id -u)-runtime-dir}       |
+|                                                                              |
+|   [ -d "$XDG_RUNTIME_DIR" ] || {                                             |
+|       mkdir -p   "$XDG_RUNTIME_DIR"                                          |
+|       chmod 0700 "$XDG_RUNTIME_DIR"                                          |
+|   }                                                                          |
+|                                                                              |
++------------------------------------------------------------------------------+
+
+Install a compositor. Below is a list:
+
++----------+-------------------------------------------------------------------+
+| dwl      |  A dwm-like compositor using wlroots [32]                         |
+| river    |  A compositor inspired by dwm and bspwm using wlroots [33]        |
+| sway     |  A tiling compositor similar to i3 using wlroots [34]             |
+| hikari   |  A freeBSD window manager inspired by cwm using wlroots [35]      |
+| wayfire  |  A 3D compositor inspired by compiz using wlroots [36]            |
+| wio      |  A Wayland compositor replicating Plan 9's rio using wlroots [37] |
+| velox    |  A dwm inspired compositor using wld and swc [38]                 |
++----------+-------------------------------------------------------------------+
+
+Note that velox does not use wlroots [39]. As a result, certain Wayland
+applications might not work as expected. A suggested terminal is a rewrite of st
+[40] for Wayland, along with a dmenu [41] reimplimentation.
+
+
+[4.0] References
+________________________________________________________________________________
+
+[0]  https://wayland.freedesktop.org/
+[1]  https://lwn.net/Articles/413335/
+[2]  https://github.com/swaywm/sway/issues/490
+[3]  https://drewdevault.com/2017/10/26/Fuck-you-nvidia.html
+[4]  https://wiki.gnome.org/Initiatives/Wayland
+[5]  https://kde.org/announcements/plasma/5/5.21.0/
+[6]  https://bugzilla.mozilla.org/show_bug.cgi?id=1661450
+[7]  https://blogs.igalia.com/msisov/2020/11/20/chrome-chromium-on-wayland-the-waylandification-project/
+[8]  https://github.com/swaywm/sway/wiki#before-installing
+[9]  https://github.com/natpen/awesome-wayland
+[10] https://hansdegoede.livejournal.com/22212.html
+[11] https://github.com/swaywm/sway/wiki/Running-Sway-without-systemd
+[12] https://www.phoronix.com/scan.php?page=news_item&px=OTA5Mg
+[14] https://people.freedesktop.org/~daniels/lca2013-wayland-x11.pdf
+[15] https://bugzilla.mozilla.org/show_bug.cgi?id=1610199
+[16] https://wiki.archlinux.org/index.php/Wayland#GUI_libraries
+[17] https://github.com/bugaevc/wl-clipboard
+[18] https://git.sr.ht/~sircmpwn/wev
+[19] https://github.com/cyclopsian/wdisplays
+[20] https://codeberg.org/dnkl/wbg
+[21] https://github.com/emersion/mako
+[22] https://github.com/emersion/grim
+[23] https://codeberg.org/dnkl/foot
+[24] https://github.com/alacritty/alacritty
+[25] https://github.com/kovidgoyal/kitty
+[26] https://codeberg.org/dnkl/yambar
+[27] https://github.com/Alexays/Waybar
+[28] https://github.com/michaelforney/wob
+[29] https://github.com/swaywm/swaylock
+[30] https://github.com/Cloudef/bemenu
+[31] https://hg.sr.ht/~scoopta/wofi
+[32] wlroots https://github.com/swaywm/wlroots
+[33] dwl https://github.com/djpohly/dwl
+[34] rier https://github.com/ifreund/river
+[35] sway https://github.com/swaywm/sway
+[36] hikari https://hikari.acmelabs.space/
+[37] wayfire https://wayfire.org/
+[38] wio https://wio-project.org/
+[39] velox https://github.com/michaelforney/velox
+[40] swc https://github.com/michaelforney/swc
+[41] wld https://github.com/michaelforney/wld
+[42] st https://github.com/michaelforney/st
+[43] dmenu https://github.com/michaelforney/dmenu
