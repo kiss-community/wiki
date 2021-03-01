@@ -60,11 +60,11 @@
 |                                     |  |                                     |
 | XORG                                |  | WAYLAND                             |
 |                                     |  |                                     |
-|  @/xorg/xorg-server                 |  |  TODO                               |
-|  @/xorg/x11-forwarding              |  |  TODO                               |
-|  @/xorg/sx                          |  |  TODO                               |
-|  @/xorg/keyboard-layout             |  |  TODO                               |
-|  @/xorg/x11vnc                      |  |                                     |
+|  @/xorg/xorg-server                 |  |  @/wayland/getting-started          |
+|  @/xorg/x11-forwarding              |  |  TODO - wlroots et al?              |
+|  @/xorg/sx                          |  |  TODO - velox?                      |
+|  @/xorg/keyboard-layout             |  |  TODO - Quirks?                     |
+|  @/xorg/x11vnc                      |  |  TODO - Session launching?          |
 |  @/xorg/xinit                       |  |                                     |
 |                                     |  |                                     |
 +-------------------------------------+  +-------------------------------------+
