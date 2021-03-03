@@ -30,10 +30,7 @@ ________________________________________________________________________________
     - Prerequisites                                                        [0.3]
 
 - Using Xwayland                                                           [1.0]
-
 - Xorgless                                                                 [2.0]
-    - Alternatives                                                         [2.1]
-
 - Post Installation                                                        [3.0]
 - References                                                               [4.0]
 
@@ -92,8 +89,8 @@ Several user repositories already exist which provide Wayland packages.
     - Fewer moving parts - libraries are provided by 2-3 packages instead of 20+
     - Fewer packages to maintain
     - Better multimonitor and HiDPI support [12]
-    - No screen tearing [14]
-    - Hardware accelerated video playback in Firefox and Webkit2GTK [15]
+    - No screen tearing [13]
+    - Hardware accelerated video playback in Firefox and Webkit2GTK [14]
     
     
     [0.3] Prerequisites
@@ -142,7 +139,7 @@ to use. GTK will default to running applications with Wayland. Qt applications
 will require you to specify xkb or Wayland for the backend, and supports a
 precedent-based list. Additionally, Qt applications will require qt5-wayland.
 
-See [16] for information on other backends and applications.
+See [15] for information on other backends and applications.
 
 Add the following to your env (eg $HOME/.profile)
 
@@ -184,29 +181,8 @@ good idea
 +----------------+-------------------------------------------------------------+
 
 
-    [2.1] Alternatives 
-    ____________________________________________________________________________
-
-    See [9] for a larger list!
-
-    +---------------+----------------------------------------------------------+
-    | browser       | falkon, viper-browser, chromium                          |
-    | wl-clipboard  | A command-line clipboard tool for Wayland [17]           |
-    | wev           | An input event tool like xev, for Wayland [18]           |
-    | wdisplays     | A GUI display configurator for wlroots compositors [19]  |
-    | wbg           | A simple background setter for wlroots compositors [20]  |
-    | mako          | A lightweight notification daemon for Wayland [21]       |
-    | grim          | A screenshot tool for Wayland [22]                       |
-    | foot          | A performant and minimalist terminal emulator [23]       |
-    | alacritty     | A cross-platform terminal emulator written in rust[24]   |
-    | kitty         | A feature-full, GPU-accelerated terminal emulator [25]   |
-    | yambar        | A modular status panel inspired by polybar [26]          |
-    | waybar        | A customizable status bar for wlroots compositors [27]   |
-    | wob           | A lightweight progress overlay bar for Wayland [28]      |
-    | swaylock      | A screen locker for Wayland [29]                         |
-    | bemenu        | A menu library inspired by dmenu [30]                    |
-    | wofi          | A menu launcher for wlroots based compositors [31]       |
-    +---------------+----------------------------------------------------------+
+As far as finding alternatives to traditionally popular Xorg software like dmenu
+or st, checkout lists like [9] and [16]. 
 
 
 [3.0] Post installation
@@ -218,7 +194,7 @@ wayland session. Add something like this to your user's $HOME/.profile:
 
 +------------------------------------------------------------------------------+
 |                                                                              |
-|   mkdir -pm 0700 "${XDG_RUNTIME_DIR:=/tmp/$(id -u)-runtime-dir}"             |
+|   mkdir -pm 0700 "${XDG_RUNTIME_DIR:=/tmp/$(id -u)-runtime-dir               |
 |   export XDG_RUNTIME_DIR                                                     |
 |                                                                              |
 +------------------------------------------------------------------------------+
@@ -226,18 +202,18 @@ wayland session. Add something like this to your user's $HOME/.profile:
 Install a compositor. Below is a list:
 
 +----------+-------------------------------------------------------------------+
-| dwl      |  A dwm-like compositor using wlroots [32]                         |
-| river    |  A compositor inspired by dwm and bspwm using wlroots [33]        |
-| sway     |  A tiling compositor similar to i3 using wlroots [34]             |
-| hikari   |  A freeBSD window manager inspired by cwm using wlroots [35]      |
-| wayfire  |  A 3D compositor inspired by compiz using wlroots [36]            |
-| wio      |  A Wayland compositor replicating Plan 9's rio using wlroots [37] |
-| velox    |  A dwm inspired compositor using wld and swc [38]                 |
+| dwl      |  A dwm-like compositor using wlroots [17]                         |
+| river    |  A compositor inspired by dwm and bspwm using wlroots [18]        |
+| sway     |  A tiling compositor similar to i3 using wlroots [19]             |
+| hikari   |  A freeBSD window manager inspired by cwm using wlroots [20]      |
+| wayfire  |  A 3D compositor inspired by compiz using wlroots [21]            |
+| wio      |  A Wayland compositor replicating Plan 9's rio using wlroots [22] |
+| velox    |  A dwm inspired compositor using wld and swc [23]                 |
 +----------+-------------------------------------------------------------------+
 
-Note that velox does not use wlroots [39]. As a result, certain Wayland
+Note that velox does not use wlroots [24], but swc [25]. As a result, certain Wayland
 applications might not work as expected. A suggested terminal is a rewrite of st
-[40] for Wayland, along with a dmenu [41] reimplimentation.
+[26] for Wayland, along with a dmenu [27] reimplimentation.
 
 
 [4.0] References
@@ -256,33 +232,18 @@ ________________________________________________________________________________
 [10] https://hansdegoede.livejournal.com/22212.html
 [11] https://github.com/swaywm/sway/wiki/Running-Sway-without-systemd
 [12] https://www.phoronix.com/scan.php?page=news_item&px=OTA5Mg
-[14] https://people.freedesktop.org/~daniels/lca2013-wayland-x11.pdf
-[15] https://bugzilla.mozilla.org/show_bug.cgi?id=1610199
-[16] https://wiki.archlinux.org/index.php/Wayland#GUI_libraries
-[17] https://github.com/bugaevc/wl-clipboard
-[18] https://git.sr.ht/~sircmpwn/wev
-[19] https://github.com/cyclopsian/wdisplays
-[20] https://codeberg.org/dnkl/wbg
-[21] https://github.com/emersion/mako
-[22] https://github.com/emersion/grim
-[23] https://codeberg.org/dnkl/foot
-[24] https://github.com/alacritty/alacritty
-[25] https://github.com/kovidgoyal/kitty
-[26] https://codeberg.org/dnkl/yambar
-[27] https://github.com/Alexays/Waybar
-[28] https://github.com/michaelforney/wob
-[29] https://github.com/swaywm/swaylock
-[30] https://github.com/Cloudef/bemenu
-[31] https://hg.sr.ht/~scoopta/wofi
-[32] wlroots https://github.com/swaywm/wlroots
-[33] dwl https://github.com/djpohly/dwl
-[34] rier https://github.com/ifreund/river
-[35] sway https://github.com/swaywm/sway
-[36] hikari https://hikari.acmelabs.space/
-[37] wayfire https://wayfire.org/
-[38] wio https://wio-project.org/
-[39] velox https://github.com/michaelforney/velox
-[40] swc https://github.com/michaelforney/swc
-[41] wld https://github.com/michaelforney/wld
-[42] st https://github.com/michaelforney/st
-[43] dmenu https://github.com/michaelforney/dmenu
+[13] https://people.freedesktop.org/~daniels/lca2013-wayland-x11.pdf
+[14] https://bugzilla.mozilla.org/show_bug.cgi?id=1610199
+[15] https://wiki.archlinux.org/index.php/Wayland#GUI_libraries
+[16] https://arewewaylandyet.com
+[17] https://github.com/djpohly/dwl
+[18] https://github.com/ifreund/river
+[19] https://github.com/swaywm/sway
+[20] https://hikari.acmelabs.space/
+[21] https://wayfire.org/
+[22] https://wio-project.org/
+[23] https://github.com/michaelforney/velox
+[24] https://github.com/swaywm/wlroots
+[25] https://github.com/michaelforney/swc
+[26] https://github.com/michaelforney/st
+[27] https://github.com/michaelforney/dmenu
