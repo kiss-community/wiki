@@ -333,8 +333,8 @@ ________________________________________________________________________________
 
     Use the following style:
     
-    export GOPATH="$PWD/go"
-    export GO111MODULE=on
+       export GOPATH="$PWD/go"
+       export GO111MODULE=on
 
        go build \
            -modcacherw \
