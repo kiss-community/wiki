@@ -194,7 +194,7 @@ wayland session. Add something like this to your user's $HOME/.profile:
 
 +------------------------------------------------------------------------------+
 |                                                                              |
-|   mkdir -pm 0700 "${XDG_RUNTIME_DIR:=/tmp/$(id -u)-runtime-dir               |
+|   mkdir -pm 0700 "${XDG_RUNTIME_DIR:=/tmp/$(id -u)-runtime-dir}"             |
 |   export XDG_RUNTIME_DIR                                                     |
 |                                                                              |
 +------------------------------------------------------------------------------+
