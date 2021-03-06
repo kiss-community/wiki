@@ -34,10 +34,11 @@
 |                                                                              |
 | CONFIGURING THE KERNEL (@/kernel/config)                                     |
 |                                                                              |
+|  @/kernel/firmware                       @/kernel/thinkpad                   |
+|                                                                              |
 |  The below pages do not yet exist, they are merely an example (help!).       |
 |                                                                              |
 |  @/kernel/lenovo-yoga-900                @/kernel/surface-pro                |
-|  @/kernel/thinkpad                       @/kernel/ryzen                      |
 |                                                                              |
 +------------------------------------------------------------------------------+
 
@@ -60,12 +61,12 @@
 |                                     |  |                                     |
 | XORG                                |  | WAYLAND                             |
 |                                     |  |                                     |
-|  @/xorg/xorg-server                 |  |  TODO                               |
-|  @/xorg/x11-forwarding              |  |  TODO                               |
+|  @/xorg/keyboard-layout             |  |                                     |
 |  @/xorg/sx                          |  |  TODO                               |
-|  @/xorg/keyboard-layout             |  |  TODO                               |
-|  @/xorg/x11vnc                      |  |                                     |
-|  @/xorg/xinit                       |  |                                     |
+|  @/xorg/x11-forwarding              |  |  TODO                               |
+|  @/xorg/x11vnc                      |  |  TODO                               |
+|  @/xorg/xinit                       |  |  TODO                               |
+|  @/xorg/xorg-server                 |  |                                     |
 |                                     |  |                                     |
 +-------------------------------------+  +-------------------------------------+
 
