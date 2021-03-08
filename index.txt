@@ -88,7 +88,7 @@
 |  @/software/alsa-utils                    @/software/openssh                 |
 |  @/software/dhcpcd                        @/software/tzdata                  |
 |  @/software/eiwd                          @/software/vim                     |
-|  @/software/git                           @/software/wpa-supplicant          |
+|  @/software/git                           @/software/wpa_supplicant          |
 |  @/software/man-pages                                                        |
 |                                                                              |
 +------------------------------------------------------------------------------+
