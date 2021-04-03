@@ -22,10 +22,11 @@ ________________________________________________________________________________
 [1.0] Repository layout
 ________________________________________________________________________________
 
-The Wiki lives in a separate repository ($/kisslinux/wiki). It is then imported
-as a submodule inside of the website's repository ($/kisslinux/website). This
-keeps things neat and tidy. It also makes contribution easier as it's less
-daunting compared to nesting it inside the website's tree.
+The Wiki lives in a separate repository ($/kiss-community/wiki). It is then
+imported as a submodule inside of the website's repository
+($/kiss-community/website). This keeps things neat and tidy. It also makes
+contribution easier as it's less daunting compared to nesting it inside the
+website's tree.
 
 
 [2.0] Relative links

@@ -34,7 +34,7 @@ busybox-init only /etc/inittab file.
     ____________________________________________________________________________
 
     This method of configuration works with every init system which uses the
-    KISS init framework. See $/kisslinux/init
+    KISS init framework. See $/kiss-community/init
 
     +--------------------------------------------------------------------------+
     | Run command during boot.                                                 |

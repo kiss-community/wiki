@@ -72,7 +72,7 @@ Assuming that you keep these repositories in $HOME,
 
 +------------------------------------------------------------------------------+
 |                                                                              |
-|   $ git clone https://github.com/kisslinux/community                         |
+|   $ git clone https://github.com/kiss-community/community                         |
 |   $ git clone https://github.com/dilyn-corner/KISS-kde                       |
 |                                                                              |
 |   $ export KISS_PATH="$HOME/KISS-kde/extra:$KISS_PATH"                       |
@@ -725,13 +725,13 @@ ________________________________________________________________________________
 
 [0] https://kde.org
 [1] https://qt.io
-[2] https://kiss.armaanb.net/guidestones
+[2] https://k1sslinux.org/guidestones
 [3] https://gitlab.com/kwinft/kwinft
-[4] https://kiss.armaanb.net/package-manager#3.2
-[5] https://kiss.armaanb.net/package-manager#5.3
+[4] https://k1sslinux.org/package-manager#3.2
+[5] https://k1sslinux.org/package-manager#5.3
 [6] http://linuxfromscratch.org/blfs/view/svn/general/elogind.html
 [7] https://github.com/dilyn-corner/KISS-kde/releases
-[8] https://kiss.armaanb.net/install
+[8] https://k1sslinux.org/install
 [9] https://wiki.archlinux.org/index.php/SDDM
 [10] https://github.com/tsujan/Kvantum
 [11] https://github.com/KDE/latte-dock

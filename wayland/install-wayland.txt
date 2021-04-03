@@ -151,8 +151,8 @@ ________________________________________________________________________________
 [13] https://hansdegoede.livejournal.com/22212.html
 [14] $/swaywm/sway/wiki/Running-Sway-without-systemd
 [15] $/swaywm/wlroots#building #udev
-[16] $/kisslinux/repo/blob/master/extra/mesa/depends
-[17] $/kisslinux/repo/blob/master/extra/firefox-bin/depends
+[16] $/kiss-community/repo/blob/master/extra/mesa/depends
+[17] $/kiss-community/repo-bin/blob/main/bin/firefox/depends
 [18] https://people.freedesktop.org/~daniels/lca2013-wayland-x11.pdf
 [19] https://bugzilla.mozilla.org/show_bug.cgi?id=1610199
 [20] (webkit2gtk VAAPI source needed)
