@@ -36,24 +36,18 @@ ________________________________________________________________________________
     Package is not suitable for inclusion in the Community repository. The same
     rules above may apply to other software at the discretion of the BDFL.
 
-    Examples: dbus, systemd, polkit, gettext, intltool, pulseaudio, pipewire,
-              pam, wayland, logind, ConsoleKit, libsn, electron and all
-              Desktop Environments.
+    Examples: ConsoleKit, dbus, electron, gettext, gtk2, intltool, libsn,
+              logind, pam, pipewire, polkit, pulseaudio, systemd, wayland and
+              all Desktop Environments.
 
 
     [0001]----------------------------------------------------------------------
 
-    No new packages shall use GTK2 as it will be removed once Firefox drops it
-    as a dependency.
-
-
-    [0002]----------------------------------------------------------------------
-
-    No new packages shall use Python 2 as it will be removed once Firefox drops
+    No new packages shall use Python 2 as it will be removed once Chromium drops
     it as a dependency.
 
 
-    [0003]----------------------------------------------------------------------
+    [0002]----------------------------------------------------------------------
 
     Packages which are binaries should contain the suffix '-bin' to reflect
     this fact. Similarly, packages which pull from git should contain the
