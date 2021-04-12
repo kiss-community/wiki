@@ -42,21 +42,6 @@
 |                                                                              |
 +------------------------------------------------------------------------------+
 
-+------------------------------------------------------------------------------+
-|                                                                              |
-| COMMUNITY                                                                    |
-|                                                                              |
-|  @/community/repositories   Software repositories maintained by members of   |
-|                             the Community. Highlights include Wayland, KDE,  |
-|                             XFCE4, Bluez, dbus and PulseAudio.               |
-|                                                                              |
-|  @/community/ports          Ports of KISS to different architectures.        |
-|  @/community/projects       Community software projects.                     |
-|  @/community/forks          Forks of KISS Linux.                             |
-|  @/community/extensions     Extensions for the KISS package manager.         |
-|                                                                              |
-+------------------------------------------------------------------------------+
-
 +-------------------------------------+  +-------------------------------------+
 |                                     |  |                                     |
 | XORG                                |  | WAYLAND                             |
