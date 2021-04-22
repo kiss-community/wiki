@@ -95,10 +95,10 @@ ________________________________________________________________________________
 
   Alternatively, the uevent helper path can be set by the init system.
 
-  # echo "/bin/echo /usr/bin/uevent-helper <dir> > /proc/sys/kernel/hotplug"
+  # echo "/bin/echo /usr/bin/uevent-helper &ltdir&gt > /proc/sys/kernel/hotplug"
   #     > /etc/rc.d/uevent-helper.boot
 
-  Replace <dir> with the path where you want the uevent files to be stored, or
+  Replace &ltdir&gt with the path where you want the uevent files to be stored, or
   leave it empty to use the default path.
 
 
