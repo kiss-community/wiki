@@ -79,11 +79,11 @@ ________________________________________________________________________________
 
   +--------------------------------------------------------------------------+
   |                                                                          |
-  |   case $TYPE in                                                          |  
+  |   case $TYPE in                                                          |
   |       post-build)                                                        |
-  |           case $PKG in                                                   |
+  |           case "$PKG" in                                                 |
   |               libudev-zero)                                              |
-  |                   "${CC:-cc}" -o helper                                  |
+  |                   "${CC:-cc}" contrib/helper.c -o helper                 |
   |                   install -Dm755 helper "$DEST/usr/bin/uevent-helper"    |
   |               ;;                                                         |
   |           esac                                                           |
