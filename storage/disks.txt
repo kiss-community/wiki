@@ -174,7 +174,7 @@ terminology and the tools which are required throughout the process.
     can usually be expected:
 
     - fdisk: a dialogue driven partition manipulator [2]
-    - gdisk: GPT fdisk (note that fdisk also supports GPT) [3]
+    - gdisk: GPT fdisk (note that busybox fdisk also supports GPT) [3]
     - cfdisk: a partition editor with a curses-based UI, part of util-linux [4]
     - parted: a GNU partition editor [5]
 
@@ -565,6 +565,7 @@ Devices can be referred to either by their /dev pathname, by a label, by UUID,
 or by Part-UUID. For systems with multiple drives, it is recommended to use 
 UUIDs or labels instead of /dev pathnames, as these are volatile and could 
 change during each system reboot. See [11] for details on identifying disks.
+NOTE: busybox does not support mounting disks by Part-UUID.
 
 The dump entry refers to the backup utility, dump [12].
 
