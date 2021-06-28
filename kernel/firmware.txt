@@ -56,20 +56,13 @@ peripherals.
     |   CONFIG_EXTRA_FIRMWARE="****.ucode"                                     |
     |                                                                          |
     +--------------------------------------------------------------------------+
-    |   Complex ".config" Example for Radeon Pro WX 2100                       |
+    |   ".config" Example for a complex situation, where the required          |
+    |   firmware consists of several blobs across different folders of the     |
+    |   Linux Firmware package.                                                |
     +--------------------------------------------------------------------------+
     |                                                                          |
-    |    CONFIG_EXTRA_FIRMWARE_DIR="/lib/firmware"                             |
-    |    CONFIG_EXTRA_FIRMWARE="amdgpu/polaris12_ce.bin \                      |
-    |    amdgpu/polaris12_ce_2.bin amdgpu/polaris12_k_mc.bin \                 |
-    |    amdgpu/polaris12_k_smc.bin amdgpu/polaris12_mc.bin \                  |
-    |    amdgpu/polaris12_me.bin amdgpu/polaris12_me_2.bin \                   |
-    |    amdgpu/polaris12_mec.bin amdgpu/polaris12_mec2.bin \                  |
-    |    amdgpu/polaris12_mec2_2.bin amdgpu/polaris12_mec_2.bin \              |
-    |    amdgpu/polaris12_pfp.bin amdgpu/polaris12_pfp_2.bin \                 |
-    |    amdgpu/polaris12_rlc.bin amdgpu/polaris12_sdma.bin \                  |
-    |    amdgpu/polaris12_sdma1.bin amdgpu/polaris12_smc.bin \                 |
-    |    amdgpu/polaris12_uvd.bin amdgpu/polaris12_vce.bin"                    |
+    |   CONFIG_EXTRA_FIRMWARE_DIR="/lib/firmware"                              |
+    |   CONFIG_EXTRA_FIRMWARE="foo/bar1.bin foo/bar2.bin baz.ucode"            |
     |                                                                          |
     +--------------------------------------------------------------------------+
 
