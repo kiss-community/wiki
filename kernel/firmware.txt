@@ -56,6 +56,15 @@ peripherals.
     |   CONFIG_EXTRA_FIRMWARE="****.ucode"                                     |
     |                                                                          |
     +--------------------------------------------------------------------------+
+    |   ".config" Example for a complex situation, where the required          |
+    |   firmware consists of several blobs across different folders of the     |
+    |   Linux Firmware package.                                                |
+    +--------------------------------------------------------------------------+
+    |                                                                          |
+    |   CONFIG_EXTRA_FIRMWARE_DIR="/lib/firmware"                              |
+    |   CONFIG_EXTRA_FIRMWARE="foo/bar1.bin foo/bar2.bin baz.ucode"            |
+    |                                                                          |
+    +--------------------------------------------------------------------------+
 
     If you are using the menuconfig tool, it should look something like the
     following:
