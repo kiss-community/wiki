@@ -5,7 +5,7 @@ zram is a kernel feature which allows for the creation of compressible ramdisks,
 or RAM-based block devices. These virtual devices can be used to extend the
 amount of RAM available on a system by utilizing in-RAM compression, in a
 similar sense to how swap is used in low-memory conditions. Unlike zswap, zram
-does not require a swapfile or swap partition to exist on a drive. As a result, 
+does not require a swapfile or swap partition to exist on a drive. As a result,
 zram can be incredibly useful on systems where memory availability is low and
 disk-space is at a premium.
 
@@ -13,7 +13,7 @@ disk-space is at a premium.
 Prerequisites
 ________________________________________________________________________________
 
-zram is managed by the kernel and requires very little user intervention to 
+zram is managed by the kernel and requires very little user intervention to
 enable and configure. First, ensure zram is enabled in the kernel:
 
 +------------------------------------------------------------------------------+
@@ -46,10 +46,10 @@ zram.num_devices=X in the kernel commandline (bootloader or built-in).
 Setup
 ________________________________________________________________________________
 
-Compressed block devices can be setup on-the-fly or at boot-time. A quick 
-method using an /etc/rc.d/zram.{boot,pre.shutdown} script is shown below. 
-Because multiple ramdisks are allowed, it might be preferable to create 
-multiple zram devices for better utilization on multicore systems. 
+Compressed block devices can be setup on-the-fly or at boot-time. A quick
+method using an /etc/rc.d/zram.{boot,pre.shutdown} script is shown below.
+Because multiple ramdisks are allowed, it might be preferable to create
+multiple zram devices for better utilization on multicore systems.
 
 The compression used on zram block devices cannot be changed once the device is
 initialized. This means that you cannot swap compression algorithms at run-time,
@@ -108,8 +108,8 @@ $SIZE below can be given in bytes or suffixed by M,G.
 |                                                                              |
 +------------------------------------------------------------------------------+
 
-Note: because zram has a 2:1 compression ratio, a total disk size of no more 
-than twice the amount of available RAM should be selected - otherwise, space 
+Note: because zram has a 2:1 compression ratio, a total disk size of no more
+than twice the amount of available RAM should be selected - otherwise, space
 will be wasted.
 
 In addition to manipulating values in /sys/block/zramX/*, users can use the

@@ -1,8 +1,8 @@
 ALSA-UTILS [0]
 ________________________________________________________________________________
 
-The Advanced Linux Sound Architecture (ALSA) provides audio and MIDI 
-functionality to the Linux operating system. 
+The Advanced Linux Sound Architecture (ALSA) provides audio and MIDI
+functionality to the Linux operating system.
 
 
 Configuration
@@ -17,7 +17,7 @@ First verify that you have alsa-utils installed:
 +------------------------------------------------------------------------------+
 
 By default, ALSA routes audio to card "0" and device "0" (see /etc/asound.conf
-file), which may not be preferred. Luckily, we can change this behavior via 
+file), which may not be preferred. Luckily, we can change this behavior via
 local user configuration:
 
 +------------------------------------------------------------------------------+
@@ -29,8 +29,8 @@ local user configuration:
 |                                                                              |
 +------------------------------------------------------------------------------+
 
-In the example, the numeric device name is specified. When multiple sound cards 
-are in use, the device numbers could be reordered across boots, such that using 
+In the example, the numeric device name is specified. When multiple sound cards
+are in use, the device numbers could be reordered across boots, such that using
 a descriptive device name is preferred.
 
 You can then test your local sound card configuration with the command below:
@@ -47,9 +47,9 @@ Note: Replace the "2" to match the number of channels in your sound card.
 Tips and Tricks
 ________________________________________________________________________________
 
-- Use the following command to obtain a list of available sound card and device 
+- Use the following command to obtain a list of available sound card and device
   numbers:
-  
+
   +----------------------------------------------------------------------------+
   |                                                                            |
   |   $ aplay -L                                                               |
@@ -65,14 +65,14 @@ ________________________________________________________________________________
   +----------------------------------------------------------------------------+
 
 - Use the following command to open an easy to use, terminal based alsa control interface:
-  
+
   +----------------------------------------------------------------------------+
   |                                                                            |
   |   $ alsamixer                                                              |
   |                                                                            |
   +----------------------------------------------------------------------------+
 
-- More "complex" .asoundrc configuration file examples can be found on the 
+- More "complex" .asoundrc configuration file examples can be found on the
   Gentoo Wiki [1] and Arch Linux Wiki [2].
 
 

@@ -1,15 +1,15 @@
 X11VNC [0]
 ________________________________________________________________________________
 
-x11vnc allows one to view remotely and interact with real X displays (i.e. a 
-display corresponding to a physical monitor, keyboard, and mouse) with any VNC 
+x11vnc allows one to view remotely and interact with real X displays (i.e. a
+display corresponding to a physical monitor, keyboard, and mouse) with any VNC
 viewer.
 
 
 Dependencies
 ________________________________________________________________________________
 
-Refer to the @/xorg/xorg-server page for X server and Window Manager setup and 
+Refer to the @/xorg/xorg-server page for X server and Window Manager setup and
 configuration.
 
 
@@ -34,7 +34,7 @@ a virtual terminal:
 +------------------------------------------------------------------------------+
 
 The "-forever" switch is not required, but prevents the x11vnc from exiting at
-the end of a client session. For more information on this switch or additional 
+the end of a client session. For more information on this switch or additional
 switch options, refer to the man page [1].
 
 
@@ -59,7 +59,7 @@ ________________________________________________________________________________
   |                                                                            |
   +----------------------------------------------------------------------------+
 
-  Note: Remember to replace USER with the name of the regular user.  
+  Note: Remember to replace USER with the name of the regular user.
 
 * You can start x11vnc in the background by passing the optional "-bg" switch.
 

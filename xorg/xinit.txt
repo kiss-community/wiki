@@ -1,9 +1,9 @@
 XINIT [0]
 ________________________________________________________________________________
 
-The xinit program is used to start the X Window System server and a first client 
-program on systems that are not using a display manager such as xdm or in 
-environments that use multiple window systems. 
+The xinit program is used to start the X Window System server and a first client
+program on systems that are not using a display manager such as xdm or in
+environments that use multiple window systems.
 
 
 Configuration

@@ -10,7 +10,7 @@ the user's X11-server.
 Dependencies
 ________________________________________________________________________________
 
-In most cases, you will already have the required dependencies. At minimum, 
+In most cases, you will already have the required dependencies. At minimum,
 ensure that you have the following installed:
 
 +------------------------------------------------------------------------------+
@@ -99,13 +99,13 @@ ________________________________________________________________________________
 * You can further improve your connection speed by using a cypher to connect to
   the remove server. This can be passed as an argument using the "-c" switch
   at the initialization of a new SSH connection. [5]
-  
+
   +----------------------------------------------------------------------------+
   |                                                                            |
   |   $ ssh -X -C -c aes256-ctr user@localhost                                 |
   |                                                                            |
   +----------------------------------------------------------------------------+
-  
+
 * Your remote system most likely has many cypher options already available for
   you to choose from (es128-ctr, aes192-ctr, aes256-ctr, arcfour256, arcfour128,
   aes128-cbc, 3des-cbc, blowfish-cbc, cast128-cbc, aes192-cbc, aes256-cbc,

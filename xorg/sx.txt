@@ -1,7 +1,7 @@
 SX [0]
 ________________________________________________________________________________
 
-sx is a simple alternative to both xinit and startx for starting an Xorg 
+sx is a simple alternative to both xinit and startx for starting an Xorg
 server.
 
 
@@ -16,7 +16,7 @@ Ensure that you have sx installed first:
 |                                                                              |
 +------------------------------------------------------------------------------+
 
-The default XDG_DATA_HOME and XDG_CONFIG_HOME directories can be modified via 
+The default XDG_DATA_HOME and XDG_CONFIG_HOME directories can be modified via
 environment variables:
 
 +------------------------------------------------------------------------------+

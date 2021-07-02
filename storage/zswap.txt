@@ -1,11 +1,11 @@
 ZSWAP [0]
 ________________________________________________________________________________
 
-zswap is a feature built-in to the Linux kernel [1] which allows users to 
-utilize compressed caches in RAM as swap pages. Instead of the kernel 
-immediately swapping pages in RAM and writing them to the hard drive, wasting 
-time on I/O operations, it compresses them into a pool in RAM. Only when the 
-available RAM is exhausted will the kernel then write-out the least recently 
+zswap is a feature built-in to the Linux kernel [1] which allows users to
+utilize compressed caches in RAM as swap pages. Instead of the kernel
+immediately swapping pages in RAM and writing them to the hard drive, wasting
+time on I/O operations, it compresses them into a pool in RAM. Only when the
+available RAM is exhausted will the kernel then write-out the least recently
 used page as an uncompressed file to swap on the drive.
 
 When swap will be used, zswap should provide performance improvements.
@@ -45,7 +45,7 @@ have zswap enabled at boot-time. To enable zswap at runtime,
 +------------------------------------------------------------------------------+
 
 zswap has many options that can also be configured at runtime, including which
-compressor is in use. To see them all, 
+compressor is in use. To see them all,
 
 +------------------------------------------------------------------------------+
 |                                                                              |
@@ -73,7 +73,7 @@ There are three different allocators to choose from for compressed pages:
 
 In general, z3fold should be preferred to zbud; the latter is supported solely
 for compatibility purposes. z3fold provides a better compression ratio and
-should be preferred when possible. 
+should be preferred when possible.
 
 zsmalloc has a very different page allocation method than either zbud or z3fold,
 and provides for greater storage density. However, zsmalloc does not implement

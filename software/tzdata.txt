@@ -2,8 +2,8 @@ TZDATA [0]
 ________________________________________________________________________________
 
 The Time Zone Database (called tz, tzdb or zoneinfo) contains code and data that
-represent the history of local time for many representative locations around the 
-globe.  
+represent the history of local time for many representative locations around the
+globe.
 
 
 Configuration
@@ -33,7 +33,7 @@ Write your preferred timezone to the /etc/timezone file:
 |                                                                              |
 +------------------------------------------------------------------------------+
 
-Remember to replace TZ with with your preferred timezone. For example, if I 
+Remember to replace TZ with with your preferred timezone. For example, if I
 lived in the US Eastern timezone, I would replace TZ with "US/Eastern".
 
 Lastly, copy the preferred timezone file to /etc/localtime:
@@ -44,8 +44,8 @@ Lastly, copy the preferred timezone file to /etc/localtime:
 |                                                                              |
 +------------------------------------------------------------------------------+
 
-Remember to replace TZ_PATH with with the complete timezone path. For the 
-example given above, the complete TZ_PATH for "US/Eastern" would be 
+Remember to replace TZ_PATH with with the complete timezone path. For the
+example given above, the complete TZ_PATH for "US/Eastern" would be
 "/usr/share/zoneinfo/US/Eastern".
 
 As an optional final step, remove the tzdata package.
