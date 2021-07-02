@@ -12,10 +12,10 @@ xkeyboard-config.
 
 Fork the packages you'll need to modify:
 
-for pkg in                              \
-    libxkbcommon xkeyboard-config libva \
-    mesa freetype-harfbuzz cairo pango  \
-    gdk-pixbuf gtk+3 mpv firefox        \
+for pkg in                                \
+    libxkbcommon xkeyboard-config libva   \
+    mesa freetype-harfbuzz cairo pango    \
+    gdk-pixbuf gtk+3 libepoxy mpv firefox \
 do
     kiss-fork $pkg
 done
@@ -29,9 +29,10 @@ some; change the following build files:
 +---------------+--------------------------------------------------------------+
 | Package       | Option                                                       |
 +---------------+--------------------------------------------------------------+
-| mesa          | Switch 'x11' to 'wayland' in -Dplatforms                     |
+| mesa          | Switch 'x11' to 'wayland' in -Dplatforms, set -Dglx=disabled |
 | gtk+3         | Switch '--enable-x11-backend' to '--enable-wayland-backend'  |
 | firefox       | Change --default-toolkit to cairo-gtk3-wayland               |
+| libepoxy      | Set -Dx11=false                                              |
 | libxkbcommon  | Add -Denable-wayland=true, -Denable-x11=false                |
 +---------------+--------------------------------------------------------------+
 
@@ -56,7 +57,7 @@ good idea:
 +----------------+-------------------------------------------------------------+
 | GTK            | GDK_BACKEND=wayland                                         |
 | Qt             | QT_QPA_PLATFORM=wayland                                     |
-| firefox        | MOZ_ENABLE_WAYLAND=wayland                                  |
+| firefox        | MOZ_ENABLE_WAYLAND=1                                        |
 +----------------+-------------------------------------------------------------+
 
 For a list of Wayland software, checkout $/natpen/awesome-wayland
