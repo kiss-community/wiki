@@ -1,0 +1,64 @@
+Xorgless
+________________________________________________________________________________
+
+Running Wayland without any software depending on X11 is very well supported
+nowadays, with many popular X packages (such as dmenu, st, xclip) having
+completely Wayland-only analogues!
+
+To build a Wayland-only repository quickly, you can clone $/dilyn-corner/KISS-me
+
+There are only two packages from repo/xorg you will need: libxkbcommon and
+xkeyboard-config.
+
+Fork the packages you'll need to modify:
+
+for pkg in                              \
+    libxkbcommon xkeyboard-config libva \
+    mesa freetype-harfbuzz cairo pango  \
+    gdk-pixbuf gtk+3 mpv firefox        \
+do
+    kiss-fork $pkg
+done
+
+Modify the depends file for each of these packages to remove any '*X*' packages.
+
+Most packages should be to check for X11 and Wayland support at build-time
+without having to specify any specific options. However, you will have to modify
+some; change the following build files:
+
++---------------+--------------------------------------------------------------+
+| Package       | Option                                                       |
++---------------+--------------------------------------------------------------+
+| mesa          | Switch 'x11' to 'wayland' in -Dplatforms                     |
+| gtk+3         | Switch '--enable-x11-backend' to '--enable-wayland-backend'  |
+| firefox       | Change --default-toolkit to cairo-gtk3-wayland               |
+| libxkbcommon  | Add -Denable-wayland=true, -Denable-x11=false                |
++---------------+--------------------------------------------------------------+
+
+Ensure no Xorg packages are installed and remove any Xorg repositories from
+KISS_PATH. Add the repository you created earlier to your KISS_PATH.
+
+Now, without xorg-server et al. installed, build wayland:
+
+for pkg in wayland wayland-protocols xkeyboard-config libxkbcommon mesa; do
+    kiss b $pkg && kiss i $pkg
+done
+
+Some packages might assume that, because you are building Linux, you must be
+using GLX. GLX is a graphics implementation provided by mesa, but is only built
+on Xorg systems. Wayland uses EGL and GLES. For some packages, like cairo, you
+might have to specify the gl-backend to be used.
+
+Launching applications in Wayland requires a little more intervention. GTK will
+default to Wayland usually, but adding the following to your environment is a
+good idea:
+
++----------------+-------------------------------------------------------------+
+| GTK            | GDK_BACKEND=wayland                                         |
+| Qt             | QT_QPA_PLATFORM=wayland                                     |
+| firefox        | MOZ_ENABLE_WAYLAND=wayland                                  |
++----------------+-------------------------------------------------------------+
+
+For a list of Wayland software, checkout $/natpen/awesome-wayland
+
+From here, you need to choose a compositor. See @/swc or @wlroots for more.

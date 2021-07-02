@@ -1,0 +1,42 @@
+Xwayland
+________________________________________________________________________________
+
+The biggest reason to use Xwayland is because you have to use software which
+does not work on Wayland natively. This would include things which require SDL1
+or GLX to function properly. For a repository which supports Xwayland with sway
+and firefox, check out $/Himmalerin/kiss-wayland
+
+
++--------------+-----------------------------------------------------------+
+| To enable xwayland support                                               |
++--------------+-----------------------------------------------------------+
+| mesa         | Add wayland to -Dplatforms                                |
+| gtk+3        | --enable-wayland-backend                                  |
+| wlroots      | Add -Dxwayland=enabled                                    |
+| xorg-server  | Add --enable-xwayland, --enable-xwayland-eglstream        |
+| libxkbcommon | -Denable-wayland=true                                     |
++--------------+-----------------------------------------------------------+
+
+In general, these steps can be followed on a system already running with Xorg.
+Only a few package rebuilds are required to enable Wayland support. Rebuild:
+
+for pkg in wayland wayland-protocols mesa libxkbcommon xorg-server; do
+    kiss b $pkg && kiss i $pkg
+done
+
+Finally, rebuild all programs which required mesa and xorg-server. Use
+kiss-revdepends for a convenient list.
+
+Applications which use Qt and GTK will require you to specify the proper backend
+to use. GTK will default to running applications with Wayland. Qt applications
+will require you to specify xkb or Wayland for the backend, and supports a
+precedent-based list. Additionally, Qt applications will require qt5-wayland.
+
+Add the following to your env (eg $HOME/.profile)
+
++----------------+-------------------------------------------------------------+
+| GTK            | GDK_BACKEND=x11                                             |
+| Qt             | QT_QPA_PLATFORM=xcb,wayland                                 |
++----------------+-------------------------------------------------------------+
+
+Now one need only select a compositor. See @/swc or @/wlroots for more.
